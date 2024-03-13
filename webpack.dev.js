@@ -10,6 +10,7 @@ module.exports = merge(common, {
     static: './dist',
     hot: true,
     open: true,
+    watchFiles: ['./src'],
   },
   output: {
     filename: '[name].bundle.js',
