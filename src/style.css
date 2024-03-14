@@ -260,6 +260,14 @@ header {
   background: #0c0b0b;
 }
 
-.hidden {
-  display: none;
+.sticky {
+  position: fixed;
+  top: 0;
+  animation: sticky 300ms ease-in-out;
+}
+
+@keyframes sticky {
+  from {
+    transform: translateY(-120%);
+  }
 }
