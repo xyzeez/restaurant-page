@@ -15,4 +15,5 @@ module.exports = merge(common, {
     filename: '[name].bundle.js',
     assetModuleFilename: 'images/[name][ext]',
   },
+  plugins: [new MiniCssExtractPlugin()],
 });

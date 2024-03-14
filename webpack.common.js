@@ -13,7 +13,6 @@ module.exports = {
       template: './src/index.html',
       favicon: './src/images/emblem.png',
     }),
-    new MiniCssExtractPlugin(),
   ],
   module: {
     rules: [
