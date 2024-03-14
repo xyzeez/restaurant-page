@@ -18,6 +18,8 @@ const contentContainer = document.querySelector('.main__inner');
 const header = document.querySelector('.header');
 const nav = document.querySelector('.nav');
 
+let hash;
+
 const contents = {
   home: `
         <div class="home">
@@ -97,19 +99,24 @@ const loadContent = (content) => {
   contentContainer.innerHTML = contents[content];
 };
 
-const activateNav = (link) => {
+const activateNav = (content) => {
   [homeLink, menuLink, contactLink].map((link) =>
     link.classList.remove('active')
   );
-  document.querySelector(`.nav__link--${link}`).classList.add('active');
+  document.querySelector(`.nav__link--${content}`).classList.add('active');
 };
 
 const monitorHash = () => {
   window.addEventListener('hashchange', () => {
-    const hash = location.hash.slice(1);
+    defineHash();
     activateNav(hash);
     loadContent(hash);
   });
+};
+
+const defineHash = () => {
+  hash = location.hash.slice(1);
+  if (!hash) hash = 'home';
 };
 
 const stickyNav = () => {
@@ -133,8 +140,7 @@ const stickyNav = () => {
 };
 
 const init = () => {
-  let hash = location.hash.slice(1);
-  if (!hash) hash = 'home';
+  defineHash();
   activateNav(hash);
   loadContent(hash);
   monitorHash();
