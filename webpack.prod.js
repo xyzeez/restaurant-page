@@ -13,7 +13,10 @@ module.exports = merge(common, {
     assetModuleFilename: 'images/[name]-[hash][ext]',
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html' }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      favicon: './src/images/emblem.png',
+    }),
     new MiniCssExtractPlugin({ filename: '[name]-[contenthash].css' }),
   ],
   optimization: {

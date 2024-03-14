@@ -17,7 +17,10 @@ module.exports = merge(common, {
     assetModuleFilename: 'images/[name][ext]',
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html' }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      favicon: './src/images/emblem.png',
+    }),
     new MiniCssExtractPlugin(),
   ],
 });
